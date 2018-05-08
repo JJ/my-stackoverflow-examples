@@ -6,18 +6,17 @@ use warnings;
 use v5.14;
 
 use LWP::Simple qw(getstore);
-use WWW::WebKit;
+use WWW::Mechanize::Firefox;
 
-my $webkit = WWW::WebKit->new(xvfb => 1);
-$webkit->init;
+my $webkit = WWW::Mechanize::Firefox->new();
 
 my $dir = "hb";
 mkdir($dir);
 
 my $url = shift || die "Necesito el fichero de la página";
 
-$webkit->open($url);
-my $page = $webkit->view->get_dom_document->get_document_element->get_outer_html;
+$webkit->get($url);
+my $page = $webkit->content;
 
 my @urls = ($page =~ /"a"\s+href="([^"]+)"/g);
 
