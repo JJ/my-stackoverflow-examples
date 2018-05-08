@@ -6,21 +6,26 @@ use warnings;
 use v5.14;
 
 use LWP::Simple qw(getstore);
-use Path::Tiny;
+use WWW::WebKit;
+
+my $webkit = WWW::WebKit->new(xvfb => 1);
+$webkit->init;
 
 my $dir = "hb";
 mkdir($dir);
 
-my $fichero = shift || die "Necesito el fichero de la página";
+my $url = shift || die "Necesito el fichero de la página";
 
-
-my $page = path($fichero)->slurp;
+$webkit->open($url);
+my $page = $webkit->view->get_dom_document->get_document_element->get_outer_html;
 
 my @urls = ($page =~ /"a"\s+href="([^"]+)"/g);
 
 for my $u (@urls) {
   next if $u eq "#";
   my ($file) = ( $u =~ m{com/(.+)\?} );
-  getstore( $u, "$dir/$file" );
+  say "Storing $u to $dir/$file";
+  my $code = getstore( $u, "$dir/$file" );
+  say "Got $u with $code";
   
 }
