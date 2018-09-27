@@ -6,9 +6,9 @@ use warnings;
 use v5.14;
 
 use LWP::Simple qw(getstore);
-use WWW::Mechanize::Firefox;
+use WWW::Mechanize::Chrome;
 
-my $webkit = WWW::Mechanize::Firefox->new();
+my $webkit = WWW::Mechanize::Chrome->new();
 
 my $dir = "hb";
 mkdir($dir);
@@ -24,7 +24,7 @@ for my $u (@urls) {
   next if $u eq "#";
   my ($file) = ( $u =~ m{com/(.+)\?} );
   say "Storing $u to $dir/$file";
-  my $code = getstore( $u, "$dir/$file" );
+  $webkit->follow_link( $u );
   say "Got $u with $code";
   
 }
