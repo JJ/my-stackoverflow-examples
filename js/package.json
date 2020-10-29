@@ -1,0 +1,17 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "tests"
+  ],
+  "author": "JJ",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.2.0"
+  }
+}
