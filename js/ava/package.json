@@ -1,0 +1,43 @@
+{
+  "name": "goFit",
+  "version": "1.0.0",
+  "description": "api web para entrenamiento personal",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElenaMerelo/goFit.git"
+  },
+  "keywords": [
+    "workout",
+    "fitness",
+    "fit"
+  ],
+  "author": "Elena Merelo Molina",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ElenaMerelo/goFit/issues"
+  },
+  "homepage": "https://github.com/ElenaMerelo/goFit#readme",
+  "devDependencies": {
+    "ava": "^3.13.0",
+    "esm": "^3.2.25"
+  },
+  "ava": {
+    "files": [
+      "tests/**/*",
+      "!tests/exercises_data.js"
+    ],
+    "cache": false,
+    "require": [
+      "esm"
+    ]
+  },
+  "dependencies": {}
+}
