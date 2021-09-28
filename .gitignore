@@ -35,3 +35,7 @@ inc/
 /*.zip
 
 *~
+
+.ash_history
+.config
+.npm
