@@ -1,0 +1,9 @@
+name: test
+on: [push]
+jobs:
+  show_refs:
+    name: Show stuff
+    runs-on: ubuntu-latest
+    steps:
+      - name: show refs
+        run: echo ${{github.ref}}
