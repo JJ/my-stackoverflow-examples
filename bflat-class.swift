@@ -1,8 +1,8 @@
 // Define a class
-class ♭Object {
+class ßObject {
     var Ψ = 42;
 }
 
-var anObject = ♭Object();
+var anObject = ßObject();
 
 print( "An object \(anObject.Ψ)" );
