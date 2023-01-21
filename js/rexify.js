@@ -1,6 +1,6 @@
 let rexed = "[x]";
 ["[", "]"].forEach((element) => {
-  rexed.replace(element, String.raw`\${element}`);
+  rexed = rexed.replace(element, `\\${element}`);
 });
 
 console.log(rexed);
